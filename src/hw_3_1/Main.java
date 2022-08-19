@@ -2,6 +2,7 @@ package hw_3_1;
 
 import hw_3_1.frut.Apple;
 import hw_3_1.frut.Box;
+import hw_3_1.frut.Fruit;
 import hw_3_1.frut.Orange;
 
 public class Main {
@@ -18,10 +19,14 @@ public class Main {
         //Создаём две коробки с указанием типов помещаемых туда фруктов
         Box <Orange> orangeBox1 = new Box<>();
         Box <Apple> appleBox1 = new Box<>();
-        //Заполняем коробки фруктами (в каждой коробке будет по 3 фрукта)
+        //Заполняем коробки фруктами, аргументы amountOrange и amountApple указывают, сколько фруктов мы положим в коробку
         //Причем нельзя положить яблоко в коробку для апельсинов
+        int amountOrange = 4;
+        int amountApple = 6;
+
+
         for (int i = 0; i < 3 ; i++) {
-            orangeBox1.addingFruitToBox(new Orange(orangeWeight));
+            orangeBox1.fruitArray(amountOrange, orangeWeight);
             appleBox1.addingFruitToBox(new Apple(appleWeight));
         }
         //Считаем вес коробки
@@ -29,6 +34,8 @@ public class Main {
         System.out.println(appleBox1.getWeight());
         //Сравниваем 2 коробки
         System.out.println(orangeBox1.compare(appleBox1));
+        //пересыпаем фрукты из коробки в коробку
+
 
 
 

@@ -6,8 +6,19 @@ import java.util.List;
 public class Box <T extends Fruit> {
     List<T> fruitBox = new ArrayList<>();
 
-    public void addingFruitToBox(T fruit){
+    public List<T> getFruitBox() {
+        return fruitBox;
+    }
+
+    public void addingFruitToBox(T ... fruit){
         fruitBox.add(fruit);
+    }
+
+    public void fruitArray(int amountFruit, float weight){
+        Fruit[] arrayFruit = new Fruit[amountFruit];
+        for (int i = 0; i < arrayFruit.length; i++) {
+            arrayFruit[i] = new Fruit(weight);
+        }
     }
 
     public float getWeight(){
@@ -17,11 +28,11 @@ public class Box <T extends Fruit> {
         }
         return summ;
     }
+
     public boolean compare(Box <?> anyBox){
-
-
-        return true;
+        return Math.abs(this.getWeight() - anyBox.getWeight()) < 0.0001;
     }
+
     public void PourFruitAnotherBox(){
 
     }
