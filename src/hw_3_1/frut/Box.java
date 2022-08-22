@@ -1,24 +1,12 @@
 package hw_3_1.frut;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Box <T extends Fruit> {
-    List<T> fruitBox = new ArrayList<>();
+    public List<T> fruitBox;
 
-    public List<T> getFruitBox() {
-        return fruitBox;
-    }
-
-    public void addingFruitToBox(T ... fruit){
-        fruitBox.add(fruit);
-    }
-
-    public void fruitArray(int amountFruit, float weight){
-        Fruit[] arrayFruit = new Fruit[amountFruit];
-        for (int i = 0; i < arrayFruit.length; i++) {
-            arrayFruit[i] = new Fruit(weight);
-        }
+    public Box(T ... fruit){
+        this.fruitBox = new  ArrayList<>(Arrays.asList(fruit));
     }
 
     public float getWeight(){
@@ -33,7 +21,13 @@ public class Box <T extends Fruit> {
         return Math.abs(this.getWeight() - anyBox.getWeight()) < 0.0001;
     }
 
-    public void PourFruitAnotherBox(){
-
+    private void addAll(List <? extends T> fruitList){
+        fruitBox.addAll(fruitList);
     }
+
+    public  void pourFruitAnotherBox(Box <? super T> boxFruits) {
+       boxFruits.addAll(fruitBox);
+       fruitBox.clear();
+    }
+
 }
